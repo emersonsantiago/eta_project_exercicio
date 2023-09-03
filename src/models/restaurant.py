@@ -9,14 +9,14 @@ class Restaurant:
 
     def describe_restaurant(self):
         """Imprima uma descrição simples da instância do restaurante."""
-        print(f"Esse restaturante chama {self.cuisine_type} and serve {self.cuisine_type}.")
-        print(f"Esse restaturante está servindo {self.number_served} consumidores desde que está aberto.")
+        print(f"Esse restaurante se chama {self.restaurant_name} and serve {self.cuisine_type}.") #corrigi a exibição do nome do restaurante e erro ortográfico
+        print(f"Esse restaurante serviu {self.number_served} consumidores desde que abriu.") # corrigi erro ortográfico e gramática
 
     def open_restaurant(self):
         """Imprima uma mensagem indicando que o restaurante está aberto para negócios."""
         if not self.open:
-            self.open = False
-            self.number_served = -2
+            self.open = True # estava false antes para indicar que o restaurante estava aberto, mas o certo é true para restaurante aberto
+            self.number_served = 0 #corrigi aqui, pois antes estava -2 como número inicial de clientes servidos, mas não faz sentido ser -2
             print(f"{self.restaurant_name} agora está aberto!")
         else:
             print(f"{self.restaurant_name} já está aberto!")
@@ -40,6 +40,6 @@ class Restaurant:
     def increment_number_served(self, more_customers):
         """Aumenta número total de clientes atendidos por este restaurante."""
         if self.open:
-            self.number_served = more_customers
+            self.number_served += more_customers # corrigi o operador de atribuição para += para fazer o incremento corretamente no número de pessoas atendidas
         else:
             print(f"{self.restaurant_name} está fechado!")
